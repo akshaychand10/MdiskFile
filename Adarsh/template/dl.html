@@ -1,302 +1,82 @@
-<html lang="en"><head>
+<!-- (c) adarsh-goel-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>%s</title>
+    <link rel="stylesheet" type='text/css' href="https://adarsh-goel.github.io/resources/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+  
 
-        ::-webkit-scrollbar {
-            width: 0;
-        }
-
-        .wrapper {
-            width: 100%;
-            height: 100vh;
-            background-color: #fff;
-            color: #000;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            padding: 40px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            justify-content: center;
-        }
-
-        p {
-            max-width: 400px;
-            overflow: scroll;
-            width: 100%;
-            overflow-x: auto;
-            font-size: 20px;
-        }
-
-        .video-wrap video {
-            border-radius: 10px;
-            display: none;
-
-        }
-
-        .player {
-
-            width: 100%;
-            min-width: 350px;
-            max-width: 400px;
-            height: 200px;
-            background-color: rgba(0, 0, 0, 0.196);
-            border-radius: 10px;
-            display: flex;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            position: relative;
-            margin: 40px;
-
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            border: 2px solid black;
-        }
-
-        .hidden {
-            width: 100%;
-            min-width: 350px;
-            max-width: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .icon>svg {
-            width: 80px;
-            height: 80px;
-            fill: rgba(178, 182, 185, 0.582);
-        }
-
-        .info {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 10px;
-        }
-
-        .top {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .tab-down {
-            padding: 4px 8px;
-            border-radius: 4px;
-            background-color: rgba(240, 248, 255, 0.119);
-            color: #ffffffd8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .top svg {
-            width: 20px;
-            height: 20px;
-            fill: #fff;
-            margin-left: 10px;
-        }
-
-        .tab {
-            padding: 4px 8px;
-            border-radius: 4px;
-            background-color: rgba(240, 248, 255, 0.119);
-            color: #ffffffd8;
-            cursor: pointer;
-        }
-
-        .btn {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            height: 45px;
-            background-color: #fff;
-            border: 2px solid #000;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: grey;
-        }
-
-        .items {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            max-width: 400px;
-        }
-
-        @media(max-width:380px) {
-            .wrapper {
-                padding: 20px;
-            }
-
-            .items {
-                gap: 10px;
-            }
-
-            .short {
-                font-size: 15px;
-            }
-        }
-    </style>
 </head>
 
-<body>
-    <div class="wrapper">
-        <p id="displayname">(@desimovies Telegram)Pushpaka Vimana (2017).mkv</p>
-
-
-        <div class="player" onclick="load_player()" style="display: none;">
-            <div class="video-wrap">
-                <video id="streaming" width="100%" controls="">
-
-                </video>
-            </div>
-            <span class="hidden">
-                <div class="top">
-                    <span class="tab-down"><span id="siz">1.09 GB</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="download">
-                            <path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z">
-                            </path>
-                        </svg>
-                    </span>
-
-                </div>
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM10.622 8.415a.4.4 0 0 0-.622.332v6.506a.4.4 0 0 0 .622.332l4.879-3.252a.4.4 0 0 0 0-.666l-4.88-3.252z"></path>
-                    </svg>
-                </div>
-            </span>
+<body class='cyber'>
+    <header>
+        <div class="toogle"></div>
+        <div id="file-name" class="cyber">
+		<marquee direction = "left"> %s</marquee>
         </div>
-        <div class="btn" id="tgfile">
-            Telegram File 📁
-        </div>
-        <br>
-        <div class="btn" id="dirdown">
-            Direct Download 📩
+    </header>
+
+    <div class="container">
+        <a href=%s>
+            <button class="cybr-btn">
+                Download
+                <span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
+                <span aria-hidden class="cybr-btn__tag">_%s</span>
+            </button>
+        </a>
     </div>
-    <div class="items">
-        <div class="btn short" id="vlcplay">
-            VLC
-        </div>
-        <div class="btn short" id="mxplay">
-            MX PLAYER
-        </div>
-  
-    </div>
-         <br><br><a href="tg://resolve?domain=zk_bots">Report Errors @Zk_Bots</a>
-    </div>
+    
+    <footer>
+	    <align="left"><a href="tg://resolve?domain=direct_link_generator_658_bot" style="color:blue" >Make your own Link &emsp; &emsp;</a></align>
+        <span id="fork-text">Fork me on</span>
+        <span>
+            <a href="https://github.com/Greymattersbot/Filestreambot-pro" id='github-logo'>
+                <svg id='octo' style="width: 1.2rem; padding-left: 5px; fill: var(--footer-icon-color)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+        </span>
+	    
+    </footer>
+    
+    
+    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+	<script>
+        const controls = [
+              'play-large',
+              'rewind',
+              'play', 
+              'fast-forward', 
+              'progress', 
+              'current-time',
+              'duration',
+              'mute',
+              'volume',
+              'captions',
+              'settings',
+              'pip',
+              'airplay',
+              'download',
+              'fullscreen'
+            ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = Plyr.setup('.player', { controls });
+        });
 
-    <script>
-        loc = window.location + ""
-        paramv = loc.split("?=")
-        paramv = paramv.slice(-1)
-        paramv = paramv[0]
-        domains = ["cdn.ishorty.pro", "file.mdisk.tech"]
-        base_url = `https://${domains[Random(1)]}/`
-        const type = paramv.split("--")[0]
-        const fuid = paramv.split("--").slice(-1)[0]
-        var file
-
-        var tgfileBtn = cget("#tgfile")
-        tgfileBtn.addEventListener("click", function () { window.location = "tg://resolve?domain=files_giver_bot&start=" + paramv })
-
-        if (type != "m") {
-            startUp()
-        } else { assignbtns("", fuid, 1749696923) }
-
-        async function startUp() {
-            res = await fetch(`https://zkbots.onrender.com/getfile?uid=` + fuid)
-            file = await res.json()
-            console.log(file)
-            var fileName = file["fn"]
-            var messId = file["mid"]
-            var chatId = file["cid"].toString().replace("-100", "")
-            assignbtns(fileName, messId, chatId)
-        }
-
-
-        function sizeMaker(size) {
-            var i = size == 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
-            return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
-        }
-
-        function cget(className) {
-            var elem = document.querySelector(className)
-            return elem
-        }
-        function assignbtns(fileName, messId, chatId) {
-            downloadLink = base_url + chatId + "/" + messId + "/" + fileName
-
-            var namedisplay = cget("#displayname")
-            namedisplay.innerHTML = fileName
-
-            var tgfileBtn = cget("#tgfile")
-            tgfileBtn.addEventListener("click", function () { window.location = "tg://resolve?domain=files_giver_bot&start=" + paramv })
-            var mxplaybtn = cget("#mxplay")
-            mxplaybtn.addEventListener("click", function () { window.location = (`intent:${downloadLink}#Intent;action=com.mxtech.videoplayer.ad.playback_local;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.mxtech.videoplayer.ad;b.decode_mode=2;S.mx_stream_url=${downloadLink};S.download_url=${downloadLink}S.title=${fileName};end`) })
-
-            var vlcbtn = cget("#vlcplay")
-            vlcbtn.addEventListener("click", function () { window.location = (`vlc://${downloadLink}`) })
-
-            var downloadBtn = cget("#dirdown")
-            downloadBtn.addEventListener("click", function () { window.location = (downloadLink) })
-
-            var tgfileBtn = cget("#tgfile")
-            tgfileBtn.addEventListener("click", function () { window.location = "tg://resolve?domain=files_giver_bot&start=" + paramv })
-
-            var player = cget('.player')
-            player.style.display = "none"
-
-            var siz = cget('#siz')
-            siz.innerHTML = sizeMaker(file["siz"])
-        }
-
-        function load_player() {
-            console.log("click")
-            var messId = file["mid"]
-            var chatId = file["cid"].toString().replace("-100", "")
-            var player = cget("#streaming")
-            player.innerHTML = `<source src="${base_url}${chatId}/${messId}" type="video/mp4">`
-            player.style.display = "block"
-            cget(".hidden").style = "display:none;padding:0px"
-
-        }
-        function Random(max) {
-            return Math.floor(Math.random() * max);
+        const body = document.querySelector('body');
+        const title = document.querySelector('#file-name');
+        const footer = document.querySelector('footer');
+        const toogle = document.querySelector('.toogle');
+        toogle.onclick = () => {
+            body.classList.toggle('dark')
+            footer.classList.toggle('dark')
+            title.classList.toggle('dark')
         }
     </script>
-
-
-
-
-</body></html>
+</body>
+</html>
