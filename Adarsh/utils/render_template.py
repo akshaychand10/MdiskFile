@@ -10,7 +10,7 @@ import logging
 import aiohttp
 
 
-async def render_page(id, secure_hash):
+async def render_page(id, secure_hash, m):
     file_data=await get_file_ids(StreamBot, int(Var.BIN_CHANNEL), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
