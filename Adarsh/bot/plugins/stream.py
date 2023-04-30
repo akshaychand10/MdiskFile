@@ -167,8 +167,4 @@ async def get_online_link(c: Client, m: Message):
     return online_link
 
 
-def req():
-    online_link = "https://example.com"
-    return render_template("req.html", online_link=online_link)
-
 
