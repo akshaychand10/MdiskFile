@@ -1,5 +1,6 @@
 from Adarsh.vars import Var
 from Adarsh.bot import StreamBot
+from Adarsh.bot.plugins.stream import online_link
 from Adarsh.utils.human_readable import humanbytes
 from Adarsh.utils.file_properties import get_file_ids
 from Adarsh.server.exceptions import InvalidHash
@@ -20,9 +21,9 @@ async def render_page(id, secure_hash):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
             
-            log_msg = await Message.forward(chat_id=Var.BIN_CHANNEL)
+        
 
-            online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+ 
 
             tag = file_data.mime_type.split('/')[0].strip()
             html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src, online_link)
@@ -30,9 +31,9 @@ async def render_page(id, secure_hash):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Listen {}'.format(file_data.file_name)
             
-            log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+           
 
-            online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+
 
             tag = file_data.mime_type.split('/')[0].strip()
             html = (await r.read()).replace('tag', tag) % (heading, online_link, file_data.file_name, src)
