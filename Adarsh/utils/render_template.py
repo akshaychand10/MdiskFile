@@ -10,7 +10,7 @@ import logging
 import aiohttp
 
 
-async def render_page(id, secure_hash, m):
+async def render_page(id, secure_hash):
     file_data=await get_file_ids(StreamBot, int(Var.BIN_CHANNEL), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
@@ -21,22 +21,15 @@ async def render_page(id, secure_hash, m):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
             
-        
-            online_link = await get_online_link(m)
- 
 
             tag = file_data.mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src, online_link)
+            html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src)
     elif str(file_data.mime_type.split('/')[0].strip()) == 'audio':
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Listen {}'.format(file_data.file_name)
-            
-           
-            onlinel_ink = await get_online_link(m)
-
 
             tag = file_data.mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, online_link, file_data.file_name, src)
+            html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src)
     else:
         async with aiofiles.open('Adarsh/template/dl.html') as r:
             async with aiohttp.ClientSession() as s:
