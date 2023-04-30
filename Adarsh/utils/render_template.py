@@ -21,7 +21,7 @@ async def render_page(id, secure_hash):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
             
-            online_link = urllib.parse.urljoin(Var.URL)
+            online_link = Var.URL
 
             tag = file_data.mime_type.split('/')[0].strip()
             html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src, online_link)
@@ -29,7 +29,7 @@ async def render_page(id, secure_hash):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Listen {}'.format(file_data.file_name)
 
-            online_link = urllib.parse.urljoin(Var.URL)
+            online_link = Var.URL
 
             tag = file_data.mime_type.split('/')[0].strip()
             html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src, online_link)
