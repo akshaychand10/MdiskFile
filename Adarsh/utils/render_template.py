@@ -20,7 +20,7 @@ async def render_page(id, secure_hash):
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
             
-            log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+            log_msg = await Message.forward(chat_id=Var.BIN_CHANNEL)
 
             online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
