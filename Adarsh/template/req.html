@@ -17,15 +17,16 @@
       marquee{
       font-size: 30px;
       font-weight: 800;
-      color: Black;
+      color: #FFFFFF;
       font-family: serif;
+      background-color: #232323;
       }
     </style>
     <style>
       marquee{
       font-size: 30px;
       font-weight: 800;
-      color: Black;
+      color: #FFFFFF;
       font-family: serif;
       }
     </style>
@@ -34,10 +35,10 @@
 <body>
 	
     <header>
-        <marquee bgcolor="#808080"
+        <marquee bgcolor="#FFFFFF"
 <div class="toogle"></div>
-        <div id="file-name">
-            %s
+        <div  id="file-name">
+         🎬 Watch "%s" Online Now 🍿
         </div>
 </marquee>
     </header>
@@ -47,18 +48,14 @@
     </div>
 
     <footer>
-	    <center><h4>Video not playing ? possibly because your browser or the player doesn't support online play  please download and watch.   यदि वीडियो प्ले नहीं हो रही डाउनलोड करके देखे.</h4></center><p>
-
-	      <center><h5><a style="background-color: red; padding: 10px; border-radius: 20px; color: white;" class="rounded p-3 bg-indigo-500 hover:bg-indigo-700 shadow-lg" href="intent:%s#Intent;package=com.mxtech.videoplayer.ad;S.title=JOIN @Potterhub ;end">Play Now On MX Player ⏯️</center></a></center>	  
-
-    <center><h5><a style="background-color: blue; padding: 10px; border-radius: 20px; color: white; width: 500px" class="rounded p-3 bg-indigo-500 hover:bg-indigo-700 shadow-lg" href=vlc://%s>Play in Your Player</center></a></center>
-  	  
-    
-    <center><h5><a style="background-color: red; padding: 10px; border-radius: 20px; color: white; width: 500px" class="rounded p-3 bg-indigo-500 hover:bg-indigo-700 shadow-lg" href=%s>Download Now ⬇️</center></a></center>
-
-
-<center><h2><a style="background-color: #0088cc; padding: 10px; border-radius: 10px; color: black;" class="rounded p-3 bg-indigo-500 hover:bg-indigo-700 shadow-lg" href="https://telegram.me/potterhub">Join Us On Telegram</center></a></center>	  
-
+	    <center><h4>Having trouble playing the video? Try downloading or playing in another player.</h4>
+  <div class="btn-container">
+    <a href="intent:%s#Intent;package=com.mxtech.videoplayer.ad;S.title=JOIN @Potterhub ;end" class="play-btn">Play Now on MX Player ⏯️</a>
+    <a href="vlc://%s" class="vlc-btn">Play in Your Player 📺</a> 
+    <a href="%s" class="download-btn">Download Now ⬇️</a>
+  </div>
+  <h5>Join us on Telegram to get more amazing movies like this:</h5>
+  <center><a href="https://telegram.me/potterhub" class="tg-btn">Join Potterhub on Telegram 📲</a></center>
     </footer>
     <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
 	<script>
