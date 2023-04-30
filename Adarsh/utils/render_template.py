@@ -22,7 +22,7 @@ async def render_page(id, secure_hash):
             heading = 'Watch {}'.format(file_data.file_name)
             
         
-
+            online_link = await get_online_link()
  
 
             tag = file_data.mime_type.split('/')[0].strip()
@@ -32,7 +32,7 @@ async def render_page(id, secure_hash):
             heading = 'Listen {}'.format(file_data.file_name)
             
            
-
+            onlinel_ink = await get_online_link()
 
 
             tag = file_data.mime_type.split('/')[0].strip()
