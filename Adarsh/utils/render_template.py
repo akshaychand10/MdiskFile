@@ -30,7 +30,7 @@ async def render_page(id, secure_hash):
             heading = 'Listen {}'.format(file_data.file_name)
 
  
-
+            online_link = urllib.parse.urljoin(Var.URL, f'{secure_hash}{str(id)}')
             tag = file_data.mime_type.split('/')[0].strip()
             html = (await r.read()).replace('tag', tag) % (heading, file_data.file_name, src, online_link)
     else:
