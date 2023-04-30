@@ -19,6 +19,8 @@ async def render_page(id, secure_hash):
     if str(file_data.mime_type.split('/')[0].strip()) == 'video':
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
+            
+            log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
 
             online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
@@ -27,6 +29,8 @@ async def render_page(id, secure_hash):
     elif str(file_data.mime_type.split('/')[0].strip()) == 'audio':
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Listen {}'.format(file_data.file_name)
+            
+            log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
 
             online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
